@@ -1,9 +1,12 @@
 import {Router, Request, Response } from 'express';
+import { dbconn } from '../db/db';
 
 // Create a Router object
 export const router:Router = Router()
 
-router.get('/', (req:Request, resp:Response) => {
+router.get('/', async (req:Request, resp:Response) => {
 
-  resp.send('Hello From user Route ???')
+  const conn = await dbconn()
+
+  resp.send('Hello From user Route $$$$')
 })
